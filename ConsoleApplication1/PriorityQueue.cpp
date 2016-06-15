@@ -2,6 +2,8 @@
 #include "PriorityQueue.h"
 
 
+
+
 PriorityQueue::PriorityQueue(void)
 {
 }
@@ -19,6 +21,15 @@ inline void PriorityQueue::insert(int i){
 	push(i);
 }
 
+inline int PriorityQueue::size(void){
+	return size();
+}
+
 int PriorityQueue::top(void){
 	return top();
 }
+
+bool PriorityQueue::contains(void){
+	return empty();
+}
+
