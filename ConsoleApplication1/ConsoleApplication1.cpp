@@ -5,10 +5,47 @@
 #include "graph.h"
 #include "DFS.h"
 #include <iostream>
+#include <queue>
+#include <functional>   // std::greater
+#include <algorithm>
+
 
 
 int _tmain(int argc, _TCHAR* argv[])
-{   Graph *gra = new Graph(10,4);
+{
+	std::priority_queue<int, std::vector<int>, std::greater<typename int >>*rrt = new std::priority_queue<int, std::vector<int>, std::greater<typename int >>();
+	std::vector<int> t;
+	rrt->push(5);
+	rrt->push(7);
+	rrt->push(3);
+	rrt->push(4);
+	rrt->push(4);
+	rrt->push(4);
+	rrt->push(6);
+
+	t.push_back(rrt->top());
+	rrt->pop();
+	t.push_back(rrt->top());
+	rrt->pop();
+	t.push_back(rrt->top());
+	rrt->pop();
+	t.push_back(rrt->top());
+	rrt->pop();
+	t.push_back(rrt->top());
+	rrt->pop();
+	t.push_back(rrt->top());
+	rrt->pop();
+	t.push_back(rrt->top());
+	rrt->pop();
+	t.push_back(rrt->top());
+	rrt->pop();
+	t.push_back(rrt->top());
+	rrt->pop();
+
+
+
+	
+	Graph *gra = new Graph(10,20);
     Graph_list *graph_list = new Graph_list(gra);
     std::cout << *gra;
 	std::cout << *graph_list;
