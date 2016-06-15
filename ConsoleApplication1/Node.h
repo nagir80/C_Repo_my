@@ -1,12 +1,13 @@
 #pragma once
 class Node
 {
-	int 
+	int num;
+	int priority;
 public:
-	Node(void);
+	Node(int num, int priority):num(num), priority(priority){};
 	~Node(void);
 
-bool operator==(const Node &rf);
-bool Node::operator>(const Node &rf);
+friend bool operator==(const Node &lf, const Node &rf);
+friend bool operator>(const Node &lf, const Node &rf);
 };
 

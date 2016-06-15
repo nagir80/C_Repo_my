@@ -17,7 +17,7 @@ inline void PriorityQueue::minPrioirty(void){
 	pop();
 }
 
-inline void PriorityQueue::insert(int i){
+inline void PriorityQueue::insert(Node i){
 	push(i);
 }
 
@@ -25,7 +25,7 @@ inline int PriorityQueue::size(void){
 	return size();
 }
 
-int PriorityQueue::top(void){
+Node PriorityQueue::top(void){
 	return top();
 }
 

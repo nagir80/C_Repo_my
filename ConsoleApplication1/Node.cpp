@@ -2,9 +2,7 @@
 #include "Node.h"
 
 
-Node::Node(void)
-{
-}
+
 
 
 Node::~Node(void)
@@ -12,14 +10,14 @@ Node::~Node(void)
 }
 
 
-bool Node::operator==(const Node &rf){
-	if (this->priority == rf.priority)
+bool operator==(const Node &lf, const Node &rf){
+	if (lf.priority == rf.priority)
 		return true;
 	else
 		return false;
 }
-bool Node::operator>(const Node &rf){
-	if (this->priority > rf.priority)
+bool operator>(const Node &lf, const Node &rf){
+	if (lf.priority > rf.priority)
 		return true;
 	else
 		return false;
