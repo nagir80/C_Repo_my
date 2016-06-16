@@ -1,21 +1,37 @@
 // ConsoleApplication1.cpp: определяет точку входа для консольного приложения.
 //
-
 #include "stdafx.h"
+#include "Node.h"
 #include "graph.h"
 #include "DFS.h"
-#include <iostream>
-#include <queue>
-#include <functional>   // std::greater
-#include <algorithm>
+#include "PriorityQueue.h"
+
 
 
 
 int _tmain(int argc, _TCHAR* argv[])
 {
 
+	PriorityQueue *pq = new PriorityQueue();
+	pq->insert(*(new Node(0, 2)));
+	pq->insert(*(new Node(1, 6)));
+	pq->insert(*(new Node(2, 5)));
+	pq->insert(*(new Node(3, 1)));
+	pq->insert(*(new Node(4, 3)));
+		std::vector<Node> *vecNode = new std::vector<Node>();
+	vecNode->push_back(pq->top());
+	pq->pop();
+	vecNode->push_back(pq->top());
+	pq->pop();
+	vecNode->push_back(pq->top());
+	pq->pop();
+	vecNode->push_back(pq->top());
+	pq->pop();
+	vecNode->push_back(pq->top());
+	pq->pop();
 
-	
+
+
 	Graph *gra = new Graph(10,20);
     Graph_list *graph_list = new Graph_list(gra);
     std::cout << *gra;

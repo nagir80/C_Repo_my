@@ -1,6 +1,4 @@
 #include "stdafx.h"
-#include <ctime>
-#include <cstdlib>
 #include "graph.h"
 
 Graph::Graph(unsigned int size, unsigned int p):size(size){

@@ -9,7 +9,11 @@
 
 #include <stdio.h>
 #include <tchar.h>
-
-
+#include <ctime>
+#include <cstdlib>
+#include <iostream>
+#include <queue>
+#include <functional>  
+#include <algorithm>
 
 // TODO: Установите здесь ссылки на дополнительные заголовки, требующиеся для программы

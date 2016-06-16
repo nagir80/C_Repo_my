@@ -13,23 +13,23 @@ PriorityQueue::~PriorityQueue(void)
 {
 }
 
-inline void PriorityQueue::minPrioirty(void){
-	pop();
+void PriorityQueue::minPrioirty(void){
+	std::priority_queue<typename Node, std::vector<typename Node>, std::greater<typename Node >>::pop();
 }
 
-inline void PriorityQueue::insert(Node i){
-	push(i);
+void PriorityQueue::insert(Node i){
+	std::priority_queue<typename Node, std::vector<typename Node>, std::greater<typename Node >>::push(i);
 }
 
-inline int PriorityQueue::size(void){
-	return size();
+int PriorityQueue::size(void){
+	return std::priority_queue<typename Node, std::vector<typename Node>, std::greater<typename Node >>::size();
 }
 
 Node PriorityQueue::top(void){
-	return top();
+	return std::priority_queue<typename Node, std::vector<typename Node>, std::greater<typename Node >>::top();
 }
 
 bool PriorityQueue::contains(void){
-	return empty();
+	return std::priority_queue<typename Node, std::vector<typename Node>, std::greater<typename Node >>::empty();
 }
 
