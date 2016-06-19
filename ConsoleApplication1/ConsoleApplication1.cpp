@@ -5,14 +5,14 @@
 #include "graph.h"
 #include "DFS.h"
 #include "PriorityQueue.h"
-
+#include "DijkstraAlg.h"
 
 
 
 int _tmain(int argc, _TCHAR* argv[])
 {
 
-	PriorityQueue *pq = new PriorityQueue();
+/*	PriorityQueue *pq = new PriorityQueue();
 	pq->insert(*(new Node(0, 2)));
 	pq->insert(*(new Node(1, 6)));
 	pq->insert(*(new Node(2, 5)));
@@ -30,7 +30,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	vecNode->push_back(pq->top());
 	pq->pop();
 
-
+*/
 
 
 
@@ -38,11 +38,28 @@ int _tmain(int argc, _TCHAR* argv[])
     Graph_list *graph_list = new Graph_list(gra);
 	WeightedEdgeGraph * weg = new WeightedEdgeGraph(gra);
 
-    std::cout << *gra;
-//	std::cout << *graph_list;
+	DijkstraAlg * my_alg = new DijkstraAlg(*weg);
 
+    std::cout << *gra;
 	std::cout << *weg;
 
+	for (WeightedEdge we: weg->edges(0)){
+		std::cout << we;
+	}
+	 std::cout << "\r\n";
+	for (int i = 0; i< my_alg->get_WEG().get_num_vertex(); i++){
+		std::cout << my_alg->get_pathTo()[i] << " " << my_alg->get_distTo()[i]  << "\r\n";
+	}
+
+	for (WeightedEdge we: weg->edges(0)){
+		my_alg->relax(we);
+	}
+
+	for (int i = 0; i< my_alg->get_WEG().get_num_vertex(); i++){
+		std::cout << my_alg->get_pathTo()[i] << " " << my_alg->get_distTo()[i]  << "\r\n";
+	}
+
+/*
 	DFS *dfs = new DFS(graph_list,0);
 	std::cout << "\r\n";
 	std::cout << dfs->is_connected();
@@ -51,6 +68,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	std::cout << "vert: " << gra->v() << "\r\n";
 	std::cout << "edges: " << gra->e() << "\r\n";
 	std::cout << "percentage: " << (100*(float)gra->e()/(gra->v()*gra->v()));
+*/
 /*
 	int x,y;
 	while (1){

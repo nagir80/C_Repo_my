@@ -121,6 +121,17 @@ WeightedEdgeGraph::WeightedEdgeGraph(Graph *graph){
 	}
 }
 
+std::list<WeightedEdge> WeightedEdgeGraph::edges(int num_vertex){
+	std::list<std::list<WeightedEdge>>::iterator it = listEdges->begin();
+	int i = num_vertex;
+	while (i >0){
+		it++;
+		i--;
+	}
+	return *it;
+
+}
+
 std::ostream& operator<<(std::ostream& out,  WeightedEdgeGraph const & grl){
 	for (std::list<std::list<WeightedEdge>>::iterator it = grl.get().begin() ; it != grl.get().end() ; ++it){
 		static int num = 0;

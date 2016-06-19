@@ -44,5 +44,7 @@ public:
 	WeightedEdgeGraph(Graph *graph);
 	friend std::ostream& operator<<(std::ostream& out,  WeightedEdgeGraph const & gr);
 	std::list<std::list<WeightedEdge>>& get(void) const {return *listEdges;}
+	std::list<WeightedEdge> edges(int num_vertex);
+	int get_num_vertex(void) {return vert_values->size();}
 };
 
