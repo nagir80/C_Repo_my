@@ -99,3 +99,37 @@ int Graph_list::get_vert_value(int line){
 	}
 	return *it;
 }
+
+WeightedEdgeGraph::WeightedEdgeGraph(Graph *graph){
+	listEdges =  new std::list<std::list<WeightedEdge>>();
+	vert_values = new std::list<double>();
+			srand(time(0));
+	for(int i=0 ; i < graph->v() ; i ++){
+
+		std::list<WeightedEdge> *hlp_list = new std::list<WeightedEdge>();
+		if (i == 0) vert_values->push_back(0);
+		else vert_values->push_back(100000000.0);
+
+		for (int j=0 ; j < graph->v() ; j++){
+			if (graph->adjacent(i,j)){
+				WeightedEdge *wEdge = new WeightedEdge(i, j, static_cast<double>((rand()%100))/100);
+				hlp_list->push_back(*wEdge);
+				delete wEdge;
+			}
+		}
+		listEdges->push_back(*hlp_list);
+	}
+}
+
+std::ostream& operator<<(std::ostream& out,  WeightedEdgeGraph const & grl){
+	for (std::list<std::list<WeightedEdge>>::iterator it = grl.get().begin() ; it != grl.get().end() ; ++it){
+		static int num = 0;
+		 out << num <<":";
+		for (std::list<WeightedEdge>::iterator it_hlp = it->begin() ; it_hlp != it->end() ; ++it_hlp){
+			out << "(" << it_hlp->from() << " " << it_hlp->to() << " " << it_hlp->get_weight() << ")";
+		}
+		out << "\r\n";
+		num++;
+	}
+	return out;
+}

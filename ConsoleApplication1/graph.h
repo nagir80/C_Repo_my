@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <list>
+#include "WeightedEdge.h"
 
 class Graph{
 private:
@@ -34,5 +35,14 @@ public:
 	void set_vert_value(int line, int val);
 	int get_vert_value(int line);
 	std::list<int> adj(int i);
+};
+
+class WeightedEdgeGraph{
+	std::list<std::list<WeightedEdge>> *listEdges;
+	std::list<double> *vert_values;
+public:
+	WeightedEdgeGraph(Graph *graph);
+	friend std::ostream& operator<<(std::ostream& out,  WeightedEdgeGraph const & gr);
+	std::list<std::list<WeightedEdge>>& get(void) const {return *listEdges;}
 };
 

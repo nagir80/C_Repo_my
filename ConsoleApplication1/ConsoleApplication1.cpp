@@ -32,10 +32,16 @@ int _tmain(int argc, _TCHAR* argv[])
 
 
 
-	Graph *gra = new Graph(10,20);
+
+
+	Graph *gra = new Graph(10,40);
     Graph_list *graph_list = new Graph_list(gra);
+	WeightedEdgeGraph * weg = new WeightedEdgeGraph(gra);
+
     std::cout << *gra;
-	std::cout << *graph_list;
+//	std::cout << *graph_list;
+
+	std::cout << *weg;
 
 	DFS *dfs = new DFS(graph_list,0);
 	std::cout << "\r\n";
