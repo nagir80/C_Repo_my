@@ -56,8 +56,5 @@ int PriorityQueue::top(void){
 }
 
 
-bool PriorityQueue::contains(void){
-	//return std::priority_queue<double, std::vector<double>, std::greater<double>>::empty();
-	return std::map<int, double>::empty();
-}
+
 

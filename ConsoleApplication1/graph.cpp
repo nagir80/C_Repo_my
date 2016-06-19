@@ -2,7 +2,6 @@
 #include "graph.h"
 
 Graph::Graph(unsigned int size, unsigned int p):size(size){
-	srand(time(0));
 	table = new bool*[size];
 	for(unsigned int i = 0 ; i < size ; i++){
 		table[i] = new bool[size];
@@ -45,7 +44,6 @@ std::ostream& operator<<(std::ostream& out,  Graph const & gr){
 WeightedEdgeGraph::WeightedEdgeGraph(Graph *graph){
 	listEdges =  new std::list<std::list<WeightedEdge>>();
 	vert_values = new std::list<double>();
-			srand(time(0));
 	for(int i=0 ; i < graph->v() ; i ++){
 
 		std::list<WeightedEdge> *hlp_list = new std::list<WeightedEdge>();
