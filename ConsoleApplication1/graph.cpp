@@ -40,65 +40,7 @@ std::ostream& operator<<(std::ostream& out,  Graph const & gr){
 	return out;
 }
 
-Graph_list::Graph_list(const Graph *graph){
-	list_adj = new std::list<std::list<int>>();
-	edge_values = new int*[graph->v()];
-	for (int i = 0 ; i < graph->v() ; i++){
-		std::list<int> *hlp_list = new std::list<int>();
-		vert_values.push_back(0);
-		edge_values[i] = new int[graph->v()];
 
-		for (int j = 0 ; j < graph->v() ; j++){
-			edge_values[i][j] = graph->get_table()[i][j] * rand()%10;	
-			if (graph->adjacent(i,j))
-				hlp_list->push_back(j);
-		}
-		list_adj->push_back(*hlp_list);
-	}
-}
-
-
-
-std::ostream& operator<<(std::ostream& out,  Graph_list const & grl){
-	for (std::list<std::list<int>>::iterator it = grl.get().begin() ; it != grl.get().end() ; ++it){
-		static int num = 0;
-		 out << num <<":";
-		for (std::list<int>::iterator it_hlp = it->begin() ; it_hlp != it->end() ; ++it_hlp){
-	 	   out <<  *it_hlp << " ";
-		}
-		out << "\r\n";
-		num++;
-	}
-	return out;
-}
-
-std::list<int> Graph_list::adj(int i){
-	std::list<std::list<int>>::iterator it = list_adj->begin();
-	while (i > 0){
-		it++;
-		i--;
-	}
-	return *it;
-}
-
-void Graph_list::set_vert_value(int line, int val){
-	std::list<int>::iterator it = vert_values.begin();
-
-	while (line >0){
-	   it++;
-	   line--;
-	}
-	*it = val;
-}
-int Graph_list::get_vert_value(int line){
-	std::list<int>::iterator it = vert_values.begin();
-
-	while (line >0){
-	   it++;
-	   line--;
-	}
-	return *it;
-}
 
 WeightedEdgeGraph::WeightedEdgeGraph(Graph *graph){
 	listEdges =  new std::list<std::list<WeightedEdge>>();

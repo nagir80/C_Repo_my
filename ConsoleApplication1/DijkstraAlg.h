@@ -10,10 +10,11 @@ class DijkstraAlg
 public:
 //	DijkstraAlg(){weg = nullptr;};
 	DijkstraAlg( WeightedEdgeGraph &weg);
-	void relax(WeightedEdge e);
+	void relax(int s);
 	int* get_pathTo(void) {return pathTo;}
 	double* get_distTo(void) {return distTo;}
 	WeightedEdgeGraph& get_WEG(void){return weg;}
+	PriorityQueue* get_pq(void) {return pq;}
 	~DijkstraAlg(void);
 
 };

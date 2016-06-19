@@ -2,12 +2,14 @@
 #include <queue>
 #include <functional>   // std::greater
 #include <algorithm>
-#include "Node.h"
+#include <map>
 
-class PriorityQueue : public std::priority_queue<int, std::vector<int>, std::greater<int>>
+
+
+class PriorityQueue : public std::map<int, double>
 {
 public:
-	void insert(int i);
+	void insert(int w, double i);
 	int top(void);
 	void minPrioirty(void);
 	int size(void);

@@ -14,26 +14,50 @@ PriorityQueue::~PriorityQueue(void)
 
 
 void PriorityQueue::minPrioirty(void){
-	std::priority_queue<int, std::vector<int>, std::greater<int>>::pop();
+	//std::priority_queue<double, std::vector<double>, std::greater<double>>::pop();
+	double min = 100000000.0;
+	int it_pos = -1;
+	for (auto it = this->begin() ; it != this->end() ; ++it){
+		if (it->second < min){
+			min = it->second;
+			it_pos = it->first;
+		}
+	}
+		this->erase(it_pos);
 }
 
 
-void PriorityQueue::insert(int i){
-	std::priority_queue<int, std::vector<int>, std::greater<int>>::push(i);
+void PriorityQueue::insert(int w, double i){
+	//std::priority_queue<double, std::vector<double>, std::greater<double>>::push(i);
+	std::map<int, double>::insert(std::pair<int, double>(w,i));
 }
 
 
 int PriorityQueue::size(void){
-	return std::priority_queue<int, std::vector<int>, std::greater<int>>::size();
+	//return std::priority_queue<double, std::vector<double>, std::greater<double>>::size();
+	return std::map<int, double>::size();
 }
 
 
 int PriorityQueue::top(void){
-	return std::priority_queue<int, std::vector<int>, std::greater<int>>::top();
+	//return std::priority_queue<double, std::vector<double>, std::greater<double>>::top();
+	double min = 100000000.0;
+	int it_pos = -1;
+	int ctr = 0;
+	for (auto it = this->begin() ; it != this->end() ; ++it){
+		if (it->second < min){
+			min = it->second;
+			it_pos = it->first;
+			ctr++;
+		}
+	}
+		
+	return it_pos;
 }
 
 
 bool PriorityQueue::contains(void){
-	return std::priority_queue<int, std::vector<int>, std::greater<int>>::empty();
+	//return std::priority_queue<double, std::vector<double>, std::greater<double>>::empty();
+	return std::map<int, double>::empty();
 }
 

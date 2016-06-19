@@ -12,18 +12,28 @@ DijkstraAlg::DijkstraAlg( WeightedEdgeGraph &weg):weg(weg)
 			distTo[i] = 0;
 		else
 			distTo[i] = 100000000.0;
-
-		pq = new PriorityQueue();
 	}
+
+	pq = new PriorityQueue();
 }
 
-void DijkstraAlg::relax(WeightedEdge e){
-	int v = e.from();
-	int w = e.to();
-	if (distTo[w] > distTo[v] + e.get_weight()){
-		distTo[w] = distTo[v] + e.get_weight();
-		pathTo[w] = v;
+void DijkstraAlg::relax(int s){
+	for (WeightedEdge we: weg.edges(s)){
+		int w = we.to();	
+		if (distTo[w] > distTo[s] + we.get_weight()){
+			distTo[w] = distTo[s] + we.get_weight();
+			pathTo[w] = s;
+			get_pq()->insert(w, distTo[w]);
+		}
+
 	}
+	get_pq()->minPrioirty();
+//	int v = e.from();
+//	int w = e.to();
+//	if (distTo[w] > distTo[v] + e.get_weight()){
+//		distTo[w] = distTo[v] + e.get_weight();
+//		pathTo[w] = v;
+//	}
 }
 
 

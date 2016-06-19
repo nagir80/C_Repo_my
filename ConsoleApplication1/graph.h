@@ -22,20 +22,6 @@ public:
 	bool adjacent(int x, int y) const {return table[x][y];}
 };
 
-class Graph_list{
-private:
-	
-	std::list<std::list<int>> *list_adj;
-	std::list<int> vert_values;
-	int** edge_values;
-public:
-	Graph_list(const Graph *graph);
-	friend std::ostream& operator<<(std::ostream& out,  Graph_list const & gr);
-	std::list<std::list<int>>& get(void) const {return *list_adj;}
-	void set_vert_value(int line, int val);
-	int get_vert_value(int line);
-	std::list<int> adj(int i);
-};
 
 class WeightedEdgeGraph{
 	std::list<std::list<WeightedEdge>> *listEdges;
